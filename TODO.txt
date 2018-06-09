@@ -1,0 +1,23 @@
+-- Historique ---
+    -PrintLastTransaction
+    -PrintLastMonth's Transactions
+    -Délimitations  {jours, mois, transactions, catégories, montants}
+    -Totaux
+
+-- Démarrage ----
+    -Date par défaut au mois précédent, l'afficher
+    -Afficher la dernière transaction
+    -Afficher le lieu du fichier log
+
+
+-- Parse ----
+    -help pour toutes les commandes
+    -commande pour obtenir les informations générales (voir démarrage)
+
+
+-Corriger une transaction par id
+-commencer une transaction en faisant simplement enter
+-quitter une transaction avec quitter
+-remplacer les virgules automatiquement
+
+
