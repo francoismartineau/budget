@@ -1,9 +1,10 @@
-package transaction
+package budget
 
 import (
-	"budget/console"
 	"fmt"
 	"time"
+
+	"github.com/francoismartineau/budget/console"
 )
 
 var currDate time.Time

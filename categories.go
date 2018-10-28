@@ -1,10 +1,11 @@
-package categories
+package budget
 
 import (
-	"budget/console"
 	"fmt"
 	"strings"
 	"time"
+
+	"github.com/francoismartineau/budget/console"
 )
 
 var (
@@ -18,7 +19,7 @@ func init() {
 	categories["Bouffes"] = true
 }
 
-func ManageCategories() {
+func manageCategories() {
 	for {
 		console.Clear()
 		fmt.Println("-- Manage categories ----")
@@ -53,7 +54,7 @@ func helpManageCategories() {
 	console.UserInput("")
 }
 
-func ChooseCategory() (cat string, quit bool) {
+func chooseCategory() (cat string, quit bool) {
 	console.Clear()
 	for {
 		fmt.Println("-- Choose category ----")
@@ -98,7 +99,7 @@ func isCategory(s string) bool {
 	return ok
 }
 
-func MaxLetters() (max int) {
+func maxLetters() (max int) {
 	for c := range categories {
 		if len(c) > max {
 			max = len(c)

@@ -1,7 +1,6 @@
-package transaction
+package budget
 
 import (
-	"budget/console"
 	"encoding/csv"
 	"errors"
 	"fmt"
@@ -10,6 +9,8 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/francoismartineau/budget/console"
 )
 
 const (

@@ -1,11 +1,11 @@
-package transaction
+package budget
 
 import (
-	"budget/categories"
-	"budget/console"
 	"fmt"
 	"strconv"
 	"time"
+
+	"github.com/francoismartineau/budget/console"
 )
 
 var (
@@ -32,12 +32,11 @@ func (t transaction) String() string {
 
 func (t transaction) DisplayParagraph() string {
 	return fmt.Sprintf(
-		"-- Transaction %d ----\n"+
+		"-- Transaction ----\n"+
 			"%-15v%v\n"+
 			"%-15v%.2f$\n"+
 			"%-15v%v\n"+
 			"%-15v%v",
-		t.id,
 		"date:", fmtDate(t.date),
 		"amount:", t.amount,
 		"description:", t.description,
@@ -55,7 +54,7 @@ func MakeTransaction() {
 	if quit {
 		return
 	}
-	category, quit := categories.ChooseCategory()
+	category, quit := chooseCategory()
 	if quit {
 		return
 	}
@@ -99,23 +98,24 @@ func getDescription() (descr string, quit bool) {
 	return
 }
 
-// Argument pour délimiter
-// Totaux au début
-// Ajouter un parser ici aussi
-// Les arguments peuvent
-//		-restreindre la plage temporelle
-// 		-choisir une catégorie
+// Total global
+// Totaux par catégories
 
-// aucun argument ou -h : help
-// -a 	: tout
-// -m n : afficher les n précédents mois
-// -t n : afficher les n précédentes transactions
-//
-func History() { //timeThreshold time.Time) {
-	var total float64
-	for _, t := range transactions {
-		total += t.amount
-		fmt.Println(t)
-	}
-	fmt.Printf("TOTAL: %.2f$\n", total)
+//			: afficher toutes les transactions
+// -m   	: afficher le dernier mois
+// -m n 	: afficher les n derniers mois
+// -m n i 	: afficher les n mois à partir d'il y a i mois
+
+// -t		: afficher la dernière transaction
+// -t n		: n dernières transactions
+// -t n i	: n dernières transactions à partir d'il y a i transactions
+
+// -c 		: choisir une catégorie
+// -c n		: choisir n catégories		(si trop de catégories, retreindre)
+
+func History() {
+	//var total float64
+	//var filtered []transaction
+	// Parcours à l'envers
+
 }

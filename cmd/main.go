@@ -1,16 +1,16 @@
 package main
 
 import (
-	"budget/parse"
-	"budget/transaction"
 	"log"
 	"os/exec"
+
+	"github.com/francoismartineau/budget"
 )
 
 func init() {
 	//bnc()
-	transaction.LoadTransactions()
-	transaction.LoadDate()
+	budget.LoadTransactions()
+	budget.LoadDate()
 }
 
 func bnc() {
@@ -22,7 +22,7 @@ func bnc() {
 
 func main() {
 	for {
-		parse.Command()
+		command()
 	}
 
 }
