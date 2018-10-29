@@ -10,6 +10,7 @@ export const store = new Vuex.Store({
         month: 10,
         year: 2018,
       },
+      description: "",
     },
     mutations: {
       setDay(state, day) {
@@ -20,6 +21,9 @@ export const store = new Vuex.Store({
       },
       setYear(state, year) {
         state.date.year = year
+      },
+      setDescription(state, description) {
+        state.description = description
       }
     },
   })

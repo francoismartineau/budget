@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <date></date>
     <bnc></bnc>
+    <date></date>
+    <description></description>
   </div>
 </template>
 
 <script>
 import date from './components/Date'
+import description from './components/Description'
 import bnc from './components/Bnc'
 
 export default {
@@ -14,6 +16,7 @@ export default {
   components: {
     date,
     bnc,
+    description,
   }
 }
 </script>

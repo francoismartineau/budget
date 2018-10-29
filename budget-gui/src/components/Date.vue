@@ -1,7 +1,5 @@
 <!-- TODO
   .Changer le format des boîtes
-  .d / Ctrl + d   pour modifier le jour
-  .unit tests  
 -->
 
 <template>
@@ -33,58 +31,58 @@ export default {
     isLeap: function(year) {
       var isLeap = false;
       if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
-        isLeap = true
+        isLeap = true;
       } 
-      return isLeap
+      return isLeap;
     },
     
     increment: function() {
       switch(++this.day) {
         case 29:
           if (this.month == 2 && !this.isLeap(this.year)) {
-            this.day = 1
-            this.month++
+            this.day = 1;
+            this.month++;
           }
-          break
+          break;
         case 30:
           if (this.month == 2) {
-            this.day = 1
-            this.month++
+            this.day = 1;
+            this.month++;
           }
-          break
+          break;
         case 31:
           if (this.thirtyDays.includes(this.month)) {
-            this.day = 1
-            this.month++
+            this.day = 1;
+            this.month++;
           }
-          break
+          break;
         case 32:
-          this.day = 1
-          this.month++
+          this.day = 1;
+          this.month++;
       }
       if (this.month > 12) {
-        this.month = 1
-        this.year++
+        this.month = 1;
+        this.year++;
       }
     },
     decrement: function() {
-      this.day--
+      this.day--;
       if (this.day == 0) {
-        this.month--
+        this.month--;
         if (this.month == 0) {
-          this.day = 31
-          this.month = 12
-          this.year--
+          this.day = 31;
+          this.month = 12;
+          this.year--;
         } else if (this.month == 2) {
           if (this.isLeap(this.year)) {
-            this.day = 29
+            this.day = 29;
           } else {
-            this.day = 28
+            this.day = 28;
           }
         } else if (this.thirtyDays.includes(this.month)) {
-          this.day = 30
+          this.day = 30;
         } else {
-          this.day = 31
+          this.day = 31;
         }
       }
     },
@@ -97,7 +95,7 @@ export default {
         this.$store.commit('setDay', day);
       },
       get() {
-        return this.date.day
+        return this.date.day;
       },
     },
     month: {
@@ -105,7 +103,7 @@ export default {
         this.$store.commit('setMonth', month);
       },
       get() {
-        return this.date.month
+        return this.date.month;
       },
     },
     year: {
@@ -113,7 +111,7 @@ export default {
         this.$store.commit('setYear', year);
       },
       get() {
-        return this.date.year
+        return this.date.year;
       },
     }
   },

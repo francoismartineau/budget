@@ -2,27 +2,15 @@ package main
 
 import (
 	"log"
-	"os/exec"
+	"net/http"
 
 	"github.com/francoismartineau/budget"
+	"github.com/gorilla/mux"
 )
 
-func init() {
-	//bnc()
-	budget.LoadTransactions()
-	budget.LoadDate()
-}
-
-func bnc() {
-	_, err := exec.Command("sh", "-c", "xdg-open http://www.bnc.ca").Output()
-	if err != nil {
-		log.Fatal(err)
-	}
-}
-
 func main() {
-	for {
-		command()
-	}
-
+	router := mux.NewRouter()
+	router.HandleFunc("/get_transactions", budget.GetTransactionsHandler)
+	router.HandleFunc("/set_transaction", budget.SetTransactionHandler)
+	log.Fatal(http.ListenAndServe(":8000", router))
 }
